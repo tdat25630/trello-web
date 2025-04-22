@@ -1,18 +1,15 @@
-import AccessAlarmIcon from '@mui/icons-material/AccessAlarm'
-import ThreeDRotation from '@mui/icons-material/ThreeDRotation'
-import HomeIcon from '@mui/icons-material/Home'
-import { pink } from '@mui/material/colors'
-import Button from '@mui/material/Button'
-import Typography from '@mui/material/Typography'
+
 import { useColorScheme } from '@mui/material/styles'
 import InputLabel from '@mui/material/InputLabel'
 import MenuItem from '@mui/material/MenuItem'
 import FormControl from '@mui/material/FormControl'
 import Select from '@mui/material/Select'
+import Box from '@mui/material/Box'
 import LightModeIcon from '@mui/icons-material/LightMode'
 import DarkModeIcon from '@mui/icons-material/DarkMode'
 import SystemBrightnessIcon from '@mui/icons-material/SettingsBrightness'
-import { Box } from '@mui/material'
+import Container from '@mui/material/Container'
+
 
 
 function ModeSelect() {
@@ -56,48 +53,39 @@ function ModeSelect() {
         </MenuItem>
       </Select>
     </FormControl>
-  );
-}
-
-function ModeToggle() {
-  const { mode, setMode } = useColorScheme();
-  return (
-    <Button
-      onClick={() => {
-        setMode(mode === 'light' ? 'dark' : 'light')
-      }}
-    >
-      {mode === 'light' ? 'Turn dark' : 'Turn light'}
-    </Button>
-  );
+  )
 }
 
 function App() {
 
 
   return (
-    <>
+    <Container disableGutters maxWidth={false} sx={{ height: '100vh' }}>
       <ModeSelect></ModeSelect>
-      <hr />
-      <ModeToggle />
-      <hr />
-      <div>Trantdat</div>
+      <Box sx={{
+        backgroundColor: 'primary.light',
+        width: '100%',
+        height: (theme) => theme.trello.appBarHeight,
+        display: 'flex',
+        alightItems: 'center'
+      }}></Box>
+      <Box sx={{
+        backgroundColor: 'primary.dark',
+        width: '100%',
+        height: (theme) => theme.trello.boardBarHeight,
+        display: 'flex',
+        alightItems: 'center'
+      }}></Box>
+      <Box sx={{
+        backgroundColor: 'primary.light',
+        width: '100%',
+        height: (theme) => `calc(100vh - ${theme.trello.appBarHeight} - ${theme.trello.boardBarHeight})`,
+        display: 'flex',
+        alightItems: 'center'
+      }}></Box>
 
-      <Typography variant='body2' color='text.secondary'>Yasuo</Typography>
-      <Button variant="text">Text</Button>
-      <Button variant="contained">Contained</Button>
-      <Button variant="outlined">Outlined</Button>
 
-      <AccessAlarmIcon />
-      <ThreeDRotation />
-
-      <HomeIcon color="primary" />
-      <HomeIcon color="secondary" />
-      <HomeIcon color="success" />
-      <HomeIcon color="action" />
-      <HomeIcon color="disabled" />
-      <HomeIcon sx={{ color: pink[500] }} />
-    </>
+    </Container>
   )
 }
 
