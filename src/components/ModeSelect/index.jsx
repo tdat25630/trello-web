@@ -1,6 +1,12 @@
-import Board from './pages/Boards/_id'
-
-
+import { useColorScheme } from '@mui/material/styles'
+import InputLabel from '@mui/material/InputLabel'
+import MenuItem from '@mui/material/MenuItem'
+import FormControl from '@mui/material/FormControl'
+import Select from '@mui/material/Select'
+import { Box } from '@mui/material'
+import LightModeIcon from '@mui/icons-material/LightMode'
+import DarkModeIcon from '@mui/icons-material/DarkMode'
+import SystemBrightnessIcon from '@mui/icons-material/SettingsBrightness'
 
 
 function ModeSelect() {
@@ -47,14 +53,4 @@ function ModeSelect() {
   )
 }
 
-function App() {
-
-
-  return (
-    <>
-      <Board />
-    </>
-  )
-}
-
-export default App
+export default ModeSelect
